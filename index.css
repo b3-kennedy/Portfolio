@@ -1,4 +1,40 @@
 h1
 {
     text-align: center;
+    color: white;
+}
+
+body
+{
+    background-color: rgba(59, 57, 73, 100);
+}
+
+.about
+{
+    color: white;
+    background-color: rgba(41, 40, 37, 100);
+    margin: auto;
+    width: 50%;
+    
+}
+
+h2
+{
+    text-align: center;
+    padding-top: 5%;
+}
+
+.centrepara
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.projects
+{
+    color: white;
+    background-color: rgba(41, 40, 37, 100);
+    margin: auto;
+    width: 50%;
 }
