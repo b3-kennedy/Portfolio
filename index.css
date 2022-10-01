@@ -1,74 +1,40 @@
 h1
 {
     text-align: center;
-    color: white;
+    padding-top: 150px;
+    color: black;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-h3, h4, ul
+.main
 {
-    padding-left: 5%;
-}
-
-.blog
-{
-    padding-left: 48%;
-    color: white;
-}
-
-.contact
-{
-    padding-bottom: 5%;
-}
-
-.projectpara
-{
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 5%;
-}
-
-body
-{
-    background-color: rgba(59, 57, 73, 100);
-}
-
-.about
-{
-    color: white;
-    background-color: rgba(41, 40, 37, 100);
-    margin: auto;
-    width: 50%;
-    
+    padding-left: 500px;
+    padding-right: 500px;
 }
 
 h2
 {
     text-align: center;
-    padding-top: 5%;
+    color: black;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-.centrepara
+h3
 {
-    padding-left: 5%;
-    padding-right: 5%;
+    font-family: monospace;
+    font-weight: bold;
 }
 
-.blogpara
+.video
 {
-    padding-left: 5%;
-    padding-right: 5%;
+    display: block;
+    margin: 0 auto;
+    width: 420px;
+    height: 345px;
 }
 
-.projects
-{
-    color: white;
-    background-color: rgba(41, 40, 37, 100);
-    margin: auto;
-    width: 50%;
-}
 
-.sources
-{
-    font-size: 12px;
-    padding-bottom: 5%;
-}
+
+
