@@ -35,6 +35,29 @@ h3
     height: 345px;
 }
 
+.projects
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.button
+{
+    background-color: white; /* Green */
+    border: none;
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover
+{
+    color: red;
+}
+
 
 
 
