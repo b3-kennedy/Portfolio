@@ -1,3 +1,38 @@
+
+
+
+@media (min-width: 600px) {
+    .main {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+
+    .vid
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        height: 300px;
+    }
+  }
+
+@media (min-width: 1920px) {
+    .main {
+      padding-left: 500px;
+      padding-right: 500px;
+    }
+    .vid
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+        height: 500px;
+    }
+  }
+
+
 h1
 {
     text-align: center;
@@ -7,12 +42,7 @@ h1
     font-weight: bold;
 }
 
-.vid
-{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 h2
 {
@@ -20,11 +50,4 @@ h2
     color: black;
     font-family: monospace;
     font-weight: bold;
-}
-
-
-.main
-{
-    padding-left: 500px;
-    padding-right: 500px;    
 }
