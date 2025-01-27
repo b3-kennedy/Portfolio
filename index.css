@@ -51,23 +51,25 @@ h3
     flex-direction: column;
 }
 
-.button
-{
-    background-color: white; /* Green */
-    border: none;
+.button {
+    background-color: #f4f4f4; /* Light grey */
+    border: 2px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
     color: black;
+    padding: 12px 20px; /* Add padding for better clickability */
     text-align: left;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Smooth hover effect */
 }
 
-.button:hover
-{
-    color: red;
+.button:hover {
+    background-color: #ff4747; /* Red hover effect */
+    color: white; /* Change text to white for better contrast */
+    transform: translateY(-2px); /* Add a subtle lift on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
 }
-
 
 
 
