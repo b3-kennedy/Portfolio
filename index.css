@@ -1,75 +1,69 @@
 @media (min-width: 1080px) {
-    .main {
-      padding-left: 200px;
-      padding-right: 200px;
-    }
+  .main {
+    padding-left: 200px;
+    padding-right: 200px;
   }
+}
 
 @media (min-width: 1920px) {
-    .main {
-      padding-left: 500px;
-      padding-right: 500px;
-    }
+  .main {
+    padding-left: 500px;
+    padding-right: 500px;
   }
+}
 
 
 
 h1
 {
-    text-align: center;
-    padding-top: 150px;
-    color: black;
-    font-family: monospace;
-    font-weight: bold;
+  text-align: center;
+  padding-top: 150px;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
 }
 
 h2
 {
-    text-align: center;
-    color: black;
-    font-family: monospace;
-    font-weight: bold;
+  text-align: center;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
 }
 
 h3
 {
-    font-family: monospace;
-    font-weight: bold;
+  font-family: monospace;
+  font-weight: bold;
 }
 
 .video
 {
-    display: block;
-    margin: 0 auto;
-    width: 420px;
-    height: 345px;
+  display: block;
+  margin: 0 auto;
+  width: 420px;
+  height: 345px;
 }
 
 .projects
 {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.button {
-    background-color: #f4f4f4; /* Light grey */
-    border: 2px solid #ddd; /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    color: black;
-    padding: 12px 20px; /* Add padding for better clickability */
-    text-align: left;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out; /* Smooth hover effect */
+.button
+{
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.button:hover {
-    background-color: #ff4747; /* Red hover effect */
-    color: white; /* Change text to white for better contrast */
-    transform: translateY(-2px); /* Add a subtle lift on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+.button:hover
+{
+  color: red;
 }
-
-
-
