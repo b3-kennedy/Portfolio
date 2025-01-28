@@ -1,69 +1,106 @@
-@media (min-width: 1080px) {
-  .main {
-    padding-left: 200px;
-    padding-right: 200px;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (min-width: 1920px) {
-  .main {
-    padding-left: 500px;
-    padding-right: 500px;
-  }
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-
-
-h1
-{
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
   text-align: center;
-  padding-top: 150px;
-  color: black;
-  font-family: monospace;
-  font-weight: bold;
 }
 
-h2
-{
-  text-align: center;
-  color: black;
-  font-family: monospace;
-  font-weight: bold;
+header h1 {
+  margin-bottom: 5px;
 }
 
-h3
-{
-  font-family: monospace;
-  font-weight: bold;
+nav {
+  background: #34495e;
+  padding: 10px 0;
 }
 
-.video
-{
-  display: block;
-  margin: 0 auto;
-  width: 420px;
-  height: 345px;
+nav ul {
+  list-style: none;
 }
 
-.projects
-{
-  display: flex;
-  flex-direction: column;
+nav ul li {
+  display: inline;
+  margin: 0 15px;
 }
 
-.button
-{
-  background-color: white; /* Green */
-  border: none;
-  color: black;
-  text-align: left;
+nav a {
+  color: white;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
+  font-weight: 600;
 }
 
-.button:hover
+nav a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.about,
+.projects,
+.contact {
+  margin-bottom: 30px;
+}
+
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: #3498db;
+}
+
+.contact a {
+  color: #2980b9;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.vid
 {
-  color: red;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 300px;
 }
