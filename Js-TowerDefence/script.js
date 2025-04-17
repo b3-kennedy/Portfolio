@@ -17,6 +17,8 @@ import HealthBar from './healthbar.js';
 import GameOverPanel from './gameoverpanel.js';
 import SoundManager from './soundmanager.js';
 import StartPanel from './startpanel.js';
+import LavaTower from './towers/lavatower.js';
+import MortarTower from './towers/mortartower.js';
 
 
 const canvas = document.querySelector('canvas');
@@ -133,6 +135,8 @@ export default class Game
             new PierceTower(this.canvas, this.c, this),
             new SniperTower(this.canvas, this.c, this),
             new RangeTower(this.canvas, this.c, this),
+            new LavaTower(this.canvas, this.c, this),
+            new MortarTower(this.canvas, this.c, this),
         ];
 
         for (let i = 0; i < gridYSize; i++) {
@@ -238,6 +242,7 @@ export default class Game
                             this.towers.sort((a, b) => a.gridPosition.y - b.gridPosition.y);
                             this.placer = null;
                             this.updateAuraTowers();
+                            tower.onPlaced();
                             gridElement.hasTower = true;
                             gridElement.colour = Colours.grass;
                             this.alterMoney(-this.selectedItem.cost)
@@ -541,6 +546,8 @@ export default class Game
             this.shopGrid.flat().forEach(element => {element.update(deltaTime)});
     
             this.infoPanel.update();
+
+            this.grid.flat().forEach(element => element.update(deltaTime));
         
             this.draw();
         }else if(this.state == this.gameState.PRE){

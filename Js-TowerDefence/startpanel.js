@@ -1,5 +1,6 @@
 import Text from "./text.js";
 import Helper from "./helper.js";
+import Colours from "./colours.js";
 
 export default class StartPanel {
     constructor(canvas, context, game, dimensions) {
@@ -49,8 +50,12 @@ export default class StartPanel {
             'top'
         );
 
-        this.c.fillStyle = this.isButtonHovered ? 'darkblue' : 'blue';
+        this.c.fillStyle = this.isButtonHovered ? Colours.buttonHover : 'lightblue';
         this.c.fillRect(this.buttonPos.x, this.buttonPos.y, this.buttonPos.width, this.buttonPos.height);
+        
+        this.c.strokeStyle = 'black';
+        this.c.lineWidth = 1;
+        this.c.strokeRect(this.buttonPos.x, this.buttonPos.y, this.buttonPos.width, this.buttonPos.height);
         Text.boxWrap(
             this.c, 
             "Start", 

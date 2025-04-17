@@ -20,8 +20,15 @@ export default class Enemy{
         this.health = 3;
         this.bounty = 50;
         this.isSlowed = false;
+        this.isInLava = false;
+        this.isBurning = false;
         this.damageToPlayer = 1;
         this.slowTimer = 0;
+        this.lavaTimer = 0;
+        this.burnIntervalTimer = 0;
+        this.burnTotalTimer = 0;
+        this.burnDamage = 0;
+        this.gridPos = new Vector(0,0);
         
         
     }
@@ -44,12 +51,25 @@ export default class Enemy{
 
     draw(){
         if(!this.isDead && this.isInDrawingArea()){
+
+            if(this.isBurning || this.isInLava){
+                this.c.fillStyle = 'orange';
+            }else{
+                this.c.fillStyle = 'blue';
+            }
+
             this.c.beginPath();
             this.c.arc(this.position.x,this.position.y, this.radius, 0, 360, false);
-            this.c.fillStyle = 'blue';
+            
             this.c.fill();
         }
 
+    }
+
+    getGridPosition(){
+        const gridX = Math.floor((this.position.x - this.game.drawingArea.x) / this.game.squareSize);
+        const gridY = Math.floor((this.position.y - this.game.drawingArea.y) / this.game.squareSize);
+        return new Vector(gridX, gridY);
     }
 
     slow(){
@@ -88,11 +108,37 @@ export default class Enemy{
         }
     }
 
+    checkGrid(deltaTime){
+
+        if(!this.isInDrawingArea) return;
+
+        this.gridPos = this.getGridPosition();
+        if (this.gridPos.x >= 0 && this.gridPos.x < this.game.grid.length &&
+            this.gridPos.y >= 0 && this.gridPos.y < this.game.grid[0].length) {
+        
+            if(this.game.grid[this.gridPos.x][this.gridPos.y].isLava){
+                this.isInLava = true;
+            }else{
+
+                this.isInLava = false;
+                if(this.lavaTimer > 0){
+                    this.isBurning = true;
+                    this.burnDamage = this.lavaTimer;
+                }
+                this.lavaTimer = 0;
+            }
+        }
+        
+    }
 
     update(deltaTime){
 
         if(!this.isDead){
+            this.checkGrid(deltaTime);
             this.move(deltaTime);
+
+
+
             if(this.position.x < 0 && this.waypointIndex > 1){
                 this.game.damagePlayer(this.damageToPlayer);
                 this.isDead = true;
@@ -103,6 +149,26 @@ export default class Enemy{
                 if(this.slowTimer >= 3){
                     this.isSlowed = false;
                     this.speed = this.baseSpeed;
+                }
+            }
+
+            if(this.isInLava){
+                this.lavaTimer += deltaTime * 2;
+            }
+
+            if(this.isBurning){
+                this.burnTotalTimer += deltaTime;
+                
+                this.burnIntervalTimer += deltaTime;
+                if(this.burnIntervalTimer >= 1){
+                    this.takeDamage(this.burnDamage);
+                    this.burnIntervalTimer = 0;
+                }
+                if(this.burnTotalTimer >= 5){
+                    this.isBurning = false;
+                    this.burnDamage = 0;
+                    this.burnTotalTimer = 0;
+                    this.burnIntervalTimer = 0;
                 }
             }
         }

@@ -1,7 +1,7 @@
 import Enemy from "./enemy.js";
 import Vector from "../vector.js";
 
-export default class Enemy3 extends Enemy{
+export default class MegaEnemy extends Enemy{
     constructor(canvas, context, waypoints, drawingArea, game){
         super(canvas, context, waypoints, drawingArea, game);
         this.position = new Vector(0,0);
@@ -11,18 +11,19 @@ export default class Enemy3 extends Enemy{
         this.velocity = new Vector(1,0);
         this.target = this.waypoints[1];
         this.waypointIndex = 1;
-        this.baseSpeed = 200;
+        this.baseSpeed = 25;
         this.speed = this.baseSpeed;
         this.finalDir = new Vector(1,0);
         this.isDead = false;
         this.drawingArea = drawingArea;
         this.game = game;
-        this.health = 3;
+        this.health = 200;
         this.bounty = 100;
-        this.damageToPlayer = 1;
+        this.damageToPlayer = 2;
+        this.radius = 30;
         this.gridPos = new Vector(0,0);
     }
-    
+
     takeDamage(damage){
         this.health -= damage;
         if(this.health <= 0){
@@ -47,7 +48,7 @@ export default class Enemy3 extends Enemy{
             if(this.isBurning || this.isInLava){
                 this.c.fillStyle = 'orange';
             }else{
-                this.c.fillStyle = 'yellow';
+                this.c.fillStyle = 'red';
             }
             this.c.fill();
         }        

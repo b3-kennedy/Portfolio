@@ -1,5 +1,6 @@
 import Text from "./text.js";
 import Helper from "./helper.js";
+import Colours from "./colours.js";
 
 export default class InfoPanel{
     constructor(canvas, context, game, dimensions){
@@ -88,8 +89,12 @@ export default class InfoPanel{
         this.c.fillText(rangeFull, rangeX, baseY + 25);
 
         // Sell button
-        this.c.fillStyle = this.isButtonHovered ? 'darkblue' : 'blue';
+        this.c.fillStyle = this.isButtonHovered ? Colours.buttonHover : 'lightblue';
         this.c.fillRect(baseX, baseY + 35, 75, 40);
+        
+        this.c.strokeStyle = 'black';
+        this.c.lineWidth = 1;
+        this.c.strokeRect(baseX, baseY + 35, 75, 40);
         Text.boxWrap(this.c, `Sell $${this.sell}`, this.buttonX, this.buttonY, this.buttonWidth, this.buttonHeight, 15, 'black', 14, 'center', 'middle');
     }
 

@@ -122,6 +122,13 @@ export default class Tower{
         this.target = closestEnemy;
     }
 
+    getGridPosition(){
+        const gridX = Math.floor((this.position.x - this.game.drawingArea.x) / this.game.squareSize);
+        const gridY = Math.floor((this.position.y - this.game.drawingArea.y) / this.game.squareSize);
+
+        return new Vector(gridX, gridY);
+    }
+
     update(deltaTime){
 
         if(!this.isActive) return;
@@ -149,6 +156,9 @@ export default class Tower{
         });
     }
 
+    onPlaced(){
+        
+    }
 
     onDestroy(){
 

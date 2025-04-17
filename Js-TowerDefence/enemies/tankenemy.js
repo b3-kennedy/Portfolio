@@ -20,6 +20,7 @@ export default class TankEnemy extends Enemy{
         this.health = 25;
         this.bounty = 100;
         this.damageToPlayer = 2;
+        this.gridPos = new Vector(0,0);
     }
 
     takeDamage(damage){
@@ -43,9 +44,17 @@ export default class TankEnemy extends Enemy{
         if(!this.isDead && this.isInDrawingArea()){
             this.c.beginPath();
             this.c.arc(this.position.x,this.position.y, this.radius, 0, 360, false);
-            this.c.fillStyle = 'red';
+            if(this.isBurning || this.isInLava){
+                this.c.fillStyle = 'orange';
+            }else{
+                this.c.fillStyle = 'red';
+            }
             this.c.fill();
         }        
+    }
+
+    getGridPosition(){
+        return super.getGridPosition();
     }
 
     slow(){
@@ -54,6 +63,10 @@ export default class TankEnemy extends Enemy{
 
     move(deltaTime){
         super.move(deltaTime);
+    }
+
+    checkGrid(deltaTime){
+        super.checkGrid(deltaTime);
     }
 
     update(deltaTime){

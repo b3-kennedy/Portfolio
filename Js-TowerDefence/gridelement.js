@@ -17,15 +17,26 @@ export default class GridElement{
         this.drawingArea = drawingArea;
         this.isPath = false;
         this.isIce = false;
+        this.isLava = false;
         this.debug = false;
         this.hasTower = false;
+        this.isMortard = false;
+        this.mortarTimer = 0;
+        this.lavaTimer = 0;
         
     }
 
     draw(){
-        this.c.fillStyle = this.colour;
+        if(this.isLava){
+            this.c.fillStyle = 'orange';
+        }else{
+            this.c.fillStyle = this.colour;
+        }
+
         this.c.fillRect(this.position.x, this.position.y, this.size, this.size);
         this.drawBorders();
+
+
 
 
         if(this.debug){
@@ -125,5 +136,24 @@ export default class GridElement{
         var y = this.position.y + this.size/2;
         var pos = {x : x, y: y};
         return pos;
+    }
+
+    update(deltaTime){
+        if(this.isLava){
+            this.lavaTimer += deltaTime;
+            if(this.lavaTimer >= 9){
+                this.isLava = false;
+                this.lavaTimer = 0;
+            }
+        }
+
+        if(this.isMortard){
+            this.mortarTimer += deltaTime;
+            if(this.mortarTimer >= 1){
+                this.colour = Colours.pathColour;
+                this.isMortard = false;
+                this.mortarTimer =  0;
+            }
+        }
     }
 }
